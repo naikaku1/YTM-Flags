@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>YTM Flags</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>YTM Flags <span class="dev">非公式</span></h1>
+    <div id="status" class="status"></div>
+  </header>
+
+  <div id="pending" class="pending" hidden>
+    <span>変更はページを読み込み直すと反映されます</span>
+    <button id="reload" class="primary">再読み込み</button>
+  </div>
+
+  <section>
+    <h2>よく使う</h2>
+    <div id="presets"></div>
+  </section>
+
+  <section>
+    <h2>上書き中 <span id="activeCount" class="count"></span></h2>
+    <div id="active" class="list"></div>
+  </section>
+
+  <section>
+    <h2>すべてのスイッチ <span id="allCount" class="count"></span></h2>
+    <input id="search" type="search" placeholder="名前で絞り込む(例: miniplayer)" autocomplete="off" spellcheck="false">
+    <div id="all" class="list"></div>
+  </section>
+
+  <footer>
+    <button id="resetAll">すべて既定に戻す</button>
+  </footer>
+  <script src="popup.js"></script>
+</body>
+</html>
