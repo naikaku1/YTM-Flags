@@ -3,13 +3,14 @@
 // (MAIN world からは chrome.storage を読めず、非同期では YTM の初期化に間に合わない)。
 (() => {
   const KEY = 'ytmFlagsDev.overrides';
-  // 入れ物そのものを書き換えてしまう名前は受け付けない
+  // 入れ物そのものを書き換えてしまう名前と、YTM がサーバーに「社内用の実験スイッチ」として送ってしまう force_ で始まる名前は受け付けない
   const RESERVED = new Set(['__proto__', 'constructor', 'prototype']);
+  const blocked = (k) => RESERVED.has(k) || k.startsWith('force_');
   let overrides = {};
   try {
     const raw = JSON.parse(localStorage.getItem(KEY) || '{}');
     if (raw && typeof raw === 'object' && !Array.isArray(raw)) {
-      for (const k of Object.keys(raw)) if (!RESERVED.has(k)) overrides[k] = raw[k];
+      for (const k of Object.keys(raw)) if (!blocked(k)) overrides[k] = raw[k];
     }
   } catch (e) {}
   const names = Object.keys(overrides);

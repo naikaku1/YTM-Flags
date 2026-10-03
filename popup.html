@@ -32,6 +32,18 @@
     <div id="all" class="list"></div>
   </section>
 
+  <section>
+    <h2>届いていないスイッチ <span id="hiddenCount" class="count"></span></h2>
+    <div class="hint">YTM の JS に書かれているのに、このアカウントにもログアウト状態にも届いていないスイッチです。まだ誰にも配られていない機能・A/B テストで来ていない機能・終わった実験が混ざっていて、見分けはつきません</div>
+    <div class="toolbar">
+      <button id="scan">JS から探す</button>
+      <label><input id="showNoise" type="checkbox"> 修正・記録用なども出す</label>
+    </div>
+    <div id="scanStatus" class="hint"></div>
+    <input id="hiddenSearch" type="search" placeholder="名前で絞り込む(例: album)" autocomplete="off" spellcheck="false">
+    <div id="hidden" class="list"></div>
+  </section>
+
   <footer>
     <button id="resetAll">すべて既定に戻す</button>
   </footer>
